@@ -1,11 +1,12 @@
 #!/bin/python3
 
 import json
-import pathlib
+from pathlib import Path
 import subprocess
-HOME = pathlib.Path("~/").expanduser()
-WP_ENGINE_DIR = pathlib.Path(f"{HOME}/.local/share/Steam/steamapps/workshop/content/431960/")
-ACTIVE_WP_FILE = f"{HOME}/.config/linux-wallpaperengine/wallpaper.json"
+HOME = Path("~/").expanduser()
+WP_ENGINE_DIR = Path(f"{HOME}/.local/share/Steam/steamapps/workshop/content/431960")
+ACTIVE_WP_DIR = Path(f"{HOME}/.config/linux-wallpaperengine")
+ACTIVE_WP_FILE = f"{ACTIVE_WP_DIR}/wallpaper.json"
 
 wallpapers = {}
 
@@ -34,12 +35,18 @@ while True:
 
 wp_id = wallpapers[new_wallpaper_num]["id"]
 
-with open(ACTIVE_WP_FILE, 'r') as wp_conf_file:
-    wp_conf = json.load(wp_conf_file)
+if Path(ACTIVE_WP_FILE).exists():
+    with open(ACTIVE_WP_FILE, 'r') as wp_conf_file:
+        wp_conf = json.load(wp_conf_file)
+elif ACTIVE_WP_DIR.exists():
+    wp_conf = json.loads('{ "active_wallpaper": null }')
+else:
+    ACTIVE_WP_DIR.mkdir()
+    wp_conf = json.loads('{ "active_wallpaper": null }')
 
 wp_conf["active_wallpaper"] = wp_id
 
 with open(ACTIVE_WP_FILE, 'w') as wp_conf_file:
     json.dump(wp_conf, wp_conf_file, indent=4)
 
-subprocess.run(["wallpaperengine-wrapper.sh"])
+subprocess.run(["bash -x wallpaperengine-wrapper.sh"], shell=True )
