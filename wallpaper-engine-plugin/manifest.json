@@ -1,6 +1,7 @@
 {
   "id": "wallpaper-engine-extension",
   "name": "Wallpaper Engine Extension",
+  "description": "Wallpaper Engine for Noctalia",
   "version": "1.0.0",
   "minNoctaliaVersion": "3.6.0",
   "author": "Your Name",
