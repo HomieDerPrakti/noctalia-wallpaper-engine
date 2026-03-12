@@ -4,7 +4,7 @@
     {
       "id": "wallpaper-engine-plugin",
       "name": "Noctalia Wallpaper Engine",
-      "version": "0.1",
+      "version": "0.1.1",
       "official": false,
       "author": "HomieDerPrakti",
       "description": "Wallpaper Engine for Noctalia",
