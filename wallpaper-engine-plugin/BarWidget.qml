@@ -14,8 +14,9 @@ Item {
         spacing: Style.marginS
 
         Icon {
-            icon: "image-multiple" // Using a standard icon
+            name: "image-multiple-outline" 
             size: Style.fontSizeM
+            color: Color.mOnSurface
         }
 
         Text {
