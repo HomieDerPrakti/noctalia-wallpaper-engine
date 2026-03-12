@@ -1,0 +1,11 @@
+{
+  "id": "wallpaper-engine-extension",
+  "name": "Wallpaper Engine Extension",
+  "version": "1.0.0",
+  "minNoctaliaVersion": "3.6.0",
+  "author": "Your Name",
+  "entryPoints": {
+    "barWidget": "BarWidget.qml",
+    "panel": "WallpaperPanel.qml"
+  }
+}
