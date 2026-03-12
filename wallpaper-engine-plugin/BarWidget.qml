@@ -1,6 +1,7 @@
 import QtQuick
 import qs.Widgets
 import qs.Services.Noctalia
+import qs.Widgets 1.0
 
 Item {
     id: root
