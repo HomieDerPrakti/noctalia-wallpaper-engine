@@ -13,7 +13,7 @@ Item {
         anchors.centerIn: parent
         spacing: Style.marginS
 
-        Icon {
+        NIcon {
             name: "image-multiple-outline" 
             size: Style.fontSizeM
             color: Color.mOnSurface
