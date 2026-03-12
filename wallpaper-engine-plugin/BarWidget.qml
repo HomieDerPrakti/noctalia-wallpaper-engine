@@ -13,12 +13,6 @@ Item {
         anchors.centerIn: parent
         spacing: Style.marginS
 
-        NIcon {
-            name: "image-multiple-outline" 
-            size: Style.fontSizeM
-            color: Color.mOnSurface
-        }
-
         Text {
             text: "Wallpaper Engine"
             color: Color.mOnSurface
