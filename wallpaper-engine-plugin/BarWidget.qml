@@ -1,31 +1,28 @@
 import QtQuick
-import qs.Widgets
-import qs.Services.Noctalia
+import QtQuick.Layouts
 import qs.Widgets 1.0
+import qs.Services.Noctalia 1.0
 
-Item {
+NButton {
     id: root
-    implicitWidth: row.implicitWidth + Style.marginM * 2
-    implicitHeight: Style.barHeight
+    
+    // This makes the button trigger the panel we define below
+    onClicked: {
+        Noctalia.ipc.call("widget", "toggle", "wallpaper-engine-panel")
+    }
 
-    Row {
-        id: row
+    RowLayout {
         anchors.centerIn: parent
         spacing: Style.marginS
 
-        Text {
-            text: "Wallpaper Engine"
-            color: Color.mOnSurface
-            font.pointSize: Style.getBarFontSizeForScreen(screen?.name ?? "")
+        NIcon {
+            name: "image-multiple-outline"
+            size: Style.fontSizeM
         }
-    }
 
-    MouseArea {
-        anchors.fill: parent
-        cursorShape: Qt.PointingHandCursor
-        onClicked: {
-            // This is where you trigger your selection menu
-            Noctalia.ipc.call("widget", "toggle", "wallpaper-engine-panel")
+        NText {
+            text: "Wallpapers"
+            font.pointSize: Style.getBarFontSizeForScreen(screen?.name ?? "")
         }
     }
 }
